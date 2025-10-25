@@ -170,10 +170,10 @@ public class PageController {
 //        return (hx != null) ? "fragments/restful :: content" : "layout";
 //    }
 
-    @GetMapping("/admin")
-    public String admin(@RequestHeader(value = "HX-Request", required = false) String hx) {
-        return (hx != null) ? "fragments/admin :: content" : "layout";
-    }
+//    @GetMapping("/admin")
+//    public String admin(@RequestHeader(value = "HX-Request", required = false) String hx) {
+//        return (hx != null) ? "fragments/admin :: content" : "layout";
+//    }
 
     @GetMapping("/login")
     public String login(@RequestHeader(value = "HX-Request", required = false) String hx) {

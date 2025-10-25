@@ -1,12 +1,42 @@
-<section th:fragment="content" class="page-section bg-primary" id="about">
-    <div class="container px-4 px-lg-5">
+<section th:fragment="content" class="page-section py-0" id="crud">
+    <div class="container-fluid bg-primary text-center text-white py-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-8 text-center">
                 <h2 class="text-white mt-0">ADMIN</h2>
-                <hr class="divider divider-light" />
-                <p class="text-white-75 mb-4">Admin dolgok</p>
-
+                <hr class="divider divider-light"/>
+                <p class="text-white-75 mb-4">Felhasználók kezelése</p>
             </div>
+        </div>
+    </div>
+
+    <div class="container-lg my-5">
+        <h3 class="mb-4 text-primary text-center">Felhasználók listája</h3>
+
+        <div class="table-responsive">
+            <table class="table w-75 table-hover shadow-sm bg-white rounded mx-auto" id="usersTable">
+                <thead class="table-primary">
+                <tr>
+                    <th class="ps-4">Név</th>
+                    <th>Jogkör</th>
+                    <th>Státusz</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${#lists.isEmpty(users)}">
+                    <td colspan="4" class="text-center text-muted py-4">
+                        Nincsenek felhasználók
+                    </td>
+                </tr>
+                <tr th:each="u : ${users}">
+                    <td th:text="${u.username}" class="fw-semibold ps-4"></td>
+                    <td th:text="${u.authority}" class="text-primary"></td>
+                    <td>
+                        <span th:if="${u.enabled}" class="text-success fw-semibold">Aktív</span>
+                        <span th:unless="${u.enabled}" class="text-danger fw-semibold">Inaktív</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </section>
